@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text,H1, Button, View } from 'react-native';
+import { StyleSheet, Text, Button, View } from 'react-native';
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -10,13 +10,19 @@ const App = () => {
     <Text style={styles.h1}>Usando useState</Text>
       <View>
         <Text>Qtd. produtos {count}</Text>
-        <Button color='#CD5C5C' onPress={() => setCount(count+1)} title="Adicionar produto"/>
-        <Button color='#CD5C5C' onPress={() => setCount(count-1)} title="Excluir produto"/>
+        <View style={styles.botaoContainer}> 
+          <Button color='#CD5C5C' onPress={() => setCount(count+1)} title="Adicionar produto"/>
+        </View>
+        <View style={styles.botaoContainer}>
+          <Button color='#CD5C5C' onPress={() => setCount(count-1)} title="Excluir produto"/>
+        </View>
       </View>
 
       <View>
         <Text>Voce clicou {contador} vezes</Text>
-        <Button color='#CD5C5C' onPress={() => setContador(contador+1)} title="Clique aqui!"/>
+        <View style={styles.botaoContainer}>
+          <Button color='#CD5C5C' onPress={() => setContador(contador+1)} title="Clique aqui!"/>
+        </View>
       </View>
     </View>
   );
@@ -34,6 +40,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     color: '#B22222'
+  },
+  botaoContainer: {
+    marginBottom: 5
   }
 });
 
